@@ -1,15 +1,15 @@
-import db from "@/firebase/init.js";
+// import db from "@/firebase/init.js";
 
 
-export const getAll = async function(collection) {
-  const snapshot = await db.collection(collection).get()
-  return snapshot.docs.map(doc => Object.assign({ id: doc.id }, doc.data()));
-}
+// export const getAll = async function(collection) {
+//   const snapshot = await db.collection(collection).get()
+//   return snapshot.docs.map(doc => Object.assign({ id: doc.id }, doc.data()));
+// }
 
-export const getById = async function(collection, id) {
-  const snapshot = await db.collection(collection).doc(id).get();
-  return snapshot.data()
-}
+// export const getById = async function(collection, id) {
+//   const snapshot = await db.collection(collection).doc(id).get();
+//   return snapshot.data()
+// }
 
 // export function updateById(collection, id, object) {
 //   db.collection(collection).doc(id).set(object);
