@@ -1,26 +1,15 @@
-$font-size-ratio-mobile:        0.88;
-$font-size-ratio:               1.05;
-$font-size-ratio-big:               1.15;
-$font-body-line-height:         1.5;
+$font-line-height-small:        12px;
+$font-line-height-body:         1.5;
 $font-heading-line-height:      1.20;
 $font-lineheight:                   1.56rem;
 $font-lineheight-small:         1;
 
-$font-size--3:                 calc(1em / #{$font-size-ratio} / #{$font-size-ratio} / #{$font-size-ratio});
-$font-size--2:                 calc(1em / #{$font-size-ratio} / #{$font-size-ratio});
-$font-size--1:                 calc(1em / #{$font-size-ratio});
-$font-size-0:                  calc(1em);
-$font-size-1:                  calc(1em * #{$font-size-ratio});
-$font-size-2:                  calc(1em * #{$font-size-ratio} * #{$font-size-ratio});
-$font-size-3:                  calc(1em * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio});
-$font-size-4:                  calc(1em * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio});
-$font-size-5:                  calc(1em * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio});
-$font-size-6:                  calc(1em * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio});
-$font-size-7:                  calc(1em * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio});
-$font-size-8:                  calc(1em * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio});
-$font-size-9:                  calc(1em * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio} * #{$font-size-ratio});
-$font-size-10:                 calc(1em / #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big});
-$font-size-11:                 calc(1em / #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big} * #{$font-size-ratio-big});
+$font-size--2:                   calc(#{$font-size} / 1.33333333333); //12
+$font-size--1:                   calc(#{$font-size} / 1.14285714286); //14
+$font-size-1:                    $font-size;                          //16
+$font-size-2:                    calc(#{$font-size} * 1.125);         //18
+$font-size-3:                    calc(#{$font-size} * 1.5);         //24
+$font-size-4:                    calc(#{$font-size} * 2.25);          //36
 
 
 @font-face{
@@ -34,7 +23,7 @@ $font-size-11:                 calc(1em / #{$font-size-ratio-big} * #{$font-size
 }
 
 @font-face{
-    font-family:'Poppins-Bold';
+    font-family:'Poppins-Regular';
     src: url('../fonts/Poppins-Regular.ttf') format('truetype');
 }
 
@@ -43,12 +32,10 @@ $font-size-11:                 calc(1em / #{$font-size-ratio-big} * #{$font-size
 
 @mixin p {
     font-family: $font-tertiairy;
-    font-size: $font-size-2;
-    //font-size: calc(#{$font-size*0.875} + 0.28vw); /* Manually set base font-size at container width viewport */
-    line-height: $font-body-line-height;
-    text-transform: unset;
+    font-size: $font-size--2;
+    font-weight: $font-weight-normal;
+    line-height: $font-line-height-body;
     color: $font-color-primary;
-    font-display: swap;
 }
 
 body,
@@ -58,11 +45,9 @@ p {
 
 @mixin h1 {
     font-family: $font-primary;
-    line-height: $font-heading-line-height;
-    font-size: $font-size-10;   
-    text-transform: unset;
+    line-height: $font-line-height-small;
+    font-size: $font-size-4;   
     font-weight:$font-weight-normal;
-    font-display: swap;
 }
 
 h1,
@@ -71,12 +56,11 @@ h1,
 }
 
 @mixin h2 {
-    font-family: $font-primary;
-    line-height: $font-heading-line-height;
-    font-size: $font-size-1;
-    text-transform: unset;
-    font-weight:$font-weight-light;
-    font-display: swap;
+    font-family: $font-tertiairy;
+    line-height: $font-line-height-body;
+    font-size: $font-size-3;
+    font-weight: $font-weight-normal;
+    color: $font-color-secondary;
 }
 
 h2,
@@ -87,8 +71,8 @@ h2,
 @mixin h3 {
     font-family: $font-secondary;
     // line-height: $font-heading-line-height;
-    font-size: $font-size-4;
-    font-weight:$font-weight-light;
+    font-size: $font-size-1;
+    font-weight:$font-weight-normal;
     color:$font-color-primary;
     font-display: swap;
 }
@@ -100,9 +84,14 @@ h3,
 
 @mixin h4 {
     font-family: $font-primary;
-    font-size: $font-size-5;
+    font-size: $font-size--1;
+    font-weight: $font-weight-normal;
     color:$font-color-primary;
 }
 
+h4,
+.h4 {
+    @include h4;
+}
 
 

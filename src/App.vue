@@ -1,25 +1,17 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-      <router-link to="/CreateGroup">Create group</router-link>
-    </div>
     <router-view/>
-  </div>
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <Nav/>
+    </div>
 </template>
+<script>
+  import Nav from '@/components/nav.vue'
 
-<style lang="scss">
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+  export default {
+    name: 'Home',
+    components: {
+      Nav
     }
   }
-}
-</style>
+</script>

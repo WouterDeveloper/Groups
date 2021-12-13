@@ -6,9 +6,11 @@
       </article>
       <section class="row">
         <div class="row__title">
-          <img class="row__title" src="">
-          <h3> Created groups</h3>
-          <div class="button button--toggle"></div>
+          <div class="row__left-section">
+            <img class="row__title__img" src="../assets/icons/Created-groups_icon.png" height="20px" width="20px">
+            <h3> Created groups</h3>
+          </div>
+          <img class="button button--toggle" src="../assets/icons/Button-toggle.png" height="24px" width="24px">
         </div>
       </section>
       <div class="card"  v-for="group in groups" :key="group.id">
@@ -17,6 +19,10 @@
                 <h4 class="card__text__title">{{group.Title}}</h4>
                 <p class="card__text__text">{{group.Text}}</p>
             </article>  
+            <button class="card__button">
+              <img class="card__icon">
+              <p>Exit group</p>
+            </button>
         </div>  
     </div>
 </template>

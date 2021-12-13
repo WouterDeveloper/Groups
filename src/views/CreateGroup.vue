@@ -58,6 +58,7 @@ export default {
   methods: {
     async createGroup() {
       addNew("Groepen", this.group);
+      this.$router.push({ name: "Home" });
     }
   }
 };
