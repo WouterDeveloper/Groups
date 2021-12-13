@@ -99,12 +99,9 @@ h3,
 }
 
 @mixin h4 {
-    font-family: $font-secondary;
-    line-height: $font-heading-line-height;
+    font-family: $font-primary;
     font-size: $font-size-5;
-    font-weight:$font-weight-normal;
-    color:$font-color-secondary;
-    font-display: swap;
+    color:$font-color-primary;
 }
 
 

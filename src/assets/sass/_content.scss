@@ -1,6 +1,19 @@
+.introText{
+    grid-column: 1/-1;
+}
+
+
+.row{
+    display: flex;
+    flex-direction: column;
+
+    &__title{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
 .card{
-    width:50vw;
-    height:50vh;
     background:$bg-color;
     border-radius:15px;
     box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
@@ -9,4 +22,32 @@
     0 8px 16px rgba(0,0,0,0.07),
     0 16px 32px rgba(0,0,0,0.07), 
     0 32px 64px rgba(0,0,0,0.07);
+
+    @media all and (max-width: $breakpoint-xs)
+    {      
+        margin-bottom:10%;
+    }
+
+    &__header{
+        height:86px;
+        width:100%;
+        background-image: url("../header.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 15px 15px 0px 0px;
+    }
+
+    &__text{
+        padding:12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        text-align: left;
+
+        h4, p{
+            padding:0;
+            margin:0;
+        }
+    }
 }
