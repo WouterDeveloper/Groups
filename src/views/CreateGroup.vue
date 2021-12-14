@@ -1,8 +1,13 @@
 <template>
   <div class="container">
-    <button @click="$router.go(-1)" class="btn" style="border:none">Go back</button>
-    <h1 class="page__title">Create a group</h1>
-    <h2 class="page__subtitle">Fill in each step and create a group in no time at all</h2>
+    <button @click="$router.go(-1)" class="button--back" style="border:none">
+     <img src="../assets/icons/Icon-back.png" height="10px" width="15px">
+      <p>Go back</p>
+      </button>
+     <article class="introText">
+        <h1 class="introText__title">Create a group</h1>
+        <h2 class="introText__subtitle">Fill in the data and create a group in no time at all</h2>
+      </article>
     <form class="form" @submit.prevent="createGroup">
       <div class="form__row">
         <h3 clas="form__title">Enter a name for your group</h3>
@@ -25,13 +30,17 @@
                 placeholder="Describe your group in a few words"
                 cols="40"
                 rows="5"
+                required="required"
                 class="form-control"
                 aria-describedby="fillDescriptionBlock"
                 v-model="group.Text"
         ></textarea>
       </div>
       <div class="form__row">
-          <button name="submit" type="submit" class="button button--submit">{{ buttonText }}</button>
+          <button name="submit" type="submit" class="button button--submit">
+            <img src="../assets/icons/Icon_save.png" height="12px" width="12px">
+            <p class="form__row__text">{{ buttonText }}</p>
+          </button>
         </div>
     </form>  
   </div>
@@ -57,8 +66,8 @@ export default {
 
   methods: {
     async createGroup() {
-      addNew("Groepen", this.group);
-      this.$router.push({ name: "Home" });
+      let createdGroupId = await addNew("Groepen", this.group);
+      this.$router.push({ path: `/GroupDetail/${createdGroupId}` })
     }
   }
 };

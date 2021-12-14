@@ -13,22 +13,77 @@
           <img class="button button--toggle" src="../assets/icons/Button-toggle.png" height="24px" width="24px">
         </div>
       </section>
-      <div class="card"  v-for="group in groups" :key="group.id">
-          <div class="card__header"></div>
-            <article class="card__text">
-                <h4 class="card__text__title">{{group.Title}}</h4>
-                <p class="card__text__text">{{group.Text}}</p>
-            </article>  
-            <button class="card__button">
-              <img class="card__icon">
-              <p>Exit group</p>
-            </button>
-        </div>  
+      <div v-for="group in groups" :key="group.id">
+        <div class="card" v-if="group.CreatedByUser === true && group.JoinedByUser === true">
+            <div class="card__header"></div>
+              <article class="card__text">
+                  <h4 class="card__text__title">{{group.Title}}</h4>
+                  <p class="card__text__text">{{group.Text}}</p>
+              </article>  
+              <router-link style="text-decoration: none; color: inherit;" :to="{ path: `/GroupDetail/${group.id}`}" class="card__button">
+                <img class="card__icon" src="../assets/icons/Icon_view-group.png" height="12px" width="16px">
+                <p>View group</p>
+              </router-link>
+          </div>
+      </div>  
+      <section class="row">
+        <div class="row__title">
+          <div class="row__left-section">
+            <img class="row__title__img" src="../assets/icons/Joined-groups_icon.png" height="20px" width="20px">
+            <h3> Joined groups</h3>
+          </div>
+          <img class="button button--toggle" src="../assets/icons/Button-toggle.png" height="24px" width="24px">
+        </div>
+      </section>
+      <div v-for="group in groups" :key="group.id">
+        <div class="card" v-if="group.CreatedByUser === false && group.JoinedByUser === true">
+            <div class="card__header"></div>
+              <article class="card__text">
+                  <h4 class="card__text__title">{{group.Title}}</h4>
+                  <p class="card__text__text">{{group.Text}}</p>
+              </article>  
+              <router-link style="text-decoration: none; color: inherit;" :to="{ path: `/GroupDetail/${group.id}`}" class="card__button">
+                <img class="card__icon" src="../assets/icons/Icon_view-group.png" height="12px" width="16px">
+                <p>View group</p>
+              </router-link>
+          </div>
+      </div>  
+       <section class="row">
+        <div class="row__title">
+          <div class="row__left-section">
+            <img class="row__title__img" src="../assets/icons/Other-groups_icon.png" height="20px" width="20px">
+            <h3> Other groups</h3>
+          </div>
+          <img class="button button--toggle" src="../assets/icons/Button-toggle.png" height="24px" width="24px">
+        </div>
+      </section>
+      <div v-for="group in groups" :key="group.id">
+        <div class="card" v-if="group.CreatedByUser === false && group.JoinedByUser === false">
+            <div class="card__header"></div>
+              <article class="card__text">
+                  <h4 class="card__text__title">{{group.Title}}</h4>
+                  <p class="card__text__text">{{group.Text}}</p>
+              </article>  
+              <router-link style="text-decoration: none; color: inherit;" :to="{ path: `/GroupDetail/${group.id}`}" class="card__button">
+                <img class="card__icon" src="../assets/icons/Icon_view-group.png" height="12px" width="16px">
+                <p>View group</p>
+              </router-link>
+          </div>
+      </div>  
+      <router-link class="button__create-group" to="/CreateGroup" tag="button">
+        <img class="row__title__img" src="../assets/icons/Icon_create-group.png" height="16px" width="16px">
+        <p>Create group</p>
+      </router-link>
+      <!-- <div class="button__create-group">
+           <img class="row__title__img" src="../assets/icons/Icon_create-group.png" height="16px" width="16px">
+        <p>Create group</p>
+      </div> -->
     </div>
 </template>
 
 <script>
 import { getAll } from "@/firebase/functions.js";
+import { getById } from "@/firebase/functions.js";
 
 export default {
   data() {
@@ -44,9 +99,10 @@ export default {
   methods: {
     async getGroups() {
       this.groups = await getAll("Groepen");
+    },
+     async getById() {
+      this.group = await getById("Groepen", this.id);
     }
   }
 };
-</script>
-
 </script>

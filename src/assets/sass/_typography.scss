@@ -1,9 +1,11 @@
 $font-line-height-small:        12px;
+$font-line-height-medium:       36px;
 $font-line-height-body:         1.5;
 $font-heading-line-height:      1.20;
 $font-lineheight:                   1.56rem;
 $font-lineheight-small:         1;
 
+$font-size--3:                   calc(#{$font-size} / 1.6); //12
 $font-size--2:                   calc(#{$font-size} / 1.33333333333); //12
 $font-size--1:                   calc(#{$font-size} / 1.14285714286); //14
 $font-size-1:                    $font-size;                          //16
@@ -45,7 +47,7 @@ p {
 
 @mixin h1 {
     font-family: $font-primary;
-    line-height: $font-line-height-small;
+    line-height: $font-line-height-medium;
     font-size: $font-size-4;   
     font-weight:$font-weight-normal;
 }
@@ -58,7 +60,7 @@ h1,
 @mixin h2 {
     font-family: $font-tertiairy;
     line-height: $font-line-height-body;
-    font-size: $font-size-3;
+    font-size: $font-size-2;
     font-weight: $font-weight-normal;
     color: $font-color-secondary;
 }
@@ -69,9 +71,9 @@ h2,
 }
 
 @mixin h3 {
-    font-family: $font-secondary;
+    font-family: $font-tertiairy;
     // line-height: $font-heading-line-height;
-    font-size: $font-size-1;
+    font-size: $font-size--1;
     font-weight:$font-weight-normal;
     color:$font-color-primary;
     font-display: swap;

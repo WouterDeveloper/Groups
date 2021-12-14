@@ -3,6 +3,19 @@
     
     &__title{
         margin-bottom:0px;
+        word-wrap: break-word;
+
+        &:after {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin-left:8px;
+            -moz-border-radius: 50px;
+            -webkit-border-radius: 50px;
+            border-radius: 50px;
+            background-color: $main-color;
+        }
     }
 }
 
@@ -25,7 +38,7 @@
         align-items: center;
     }
 
-    .button{
+    .button--toggle{
         box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
         0 2px 4px rgba(0,0,0,0.07), 
         0 4px 8px rgba(0,0,0,0.07), 
@@ -33,6 +46,81 @@
         0 16px 32px rgba(0,0,0,0.07), 
         0 32px 64px rgba(0,0,0,0.07);
         border-radius: 100px;
+    }
+
+    &__text{
+        margin-top:-16px;
+    }
+}
+
+.images-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap:6px;
+    grid-row-gap:6px;
+    height:200px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    &__item{
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius:10px;
+    }
+
+    &__item:nth-child(1){
+        grid-column: 1;
+        grid-row: 1;
+        background-image: url("../img/Image-grid_background-1.jpg");
+    }
+
+    &__item:nth-child(2){
+        grid-column: 2;
+        grid-row: 1;
+        background-image: url("../img/Image-grid_background-2.jpg");
+
+    }
+
+    &__item:nth-child(3){
+        grid-column: 1 / span 2;
+        grid-row: 2;
+        background-image: url("../img/Image-grid_background-3.jpg");
+
+    }
+
+    &__item:nth-child(4){
+        grid-column: 3;
+        grid-row:1 / span 2;
+        background-image: url("../img/Image-grid_background-4.jpg");
+
+    }
+}
+
+.images-row{
+    display: flex;
+    justify-content: space-between;
+
+    &__left-side{
+        display: flex;
+        justify-content: space-evenly;
+        width:60%;
+    }
+
+    &__item{
+        margin: 0% 2%;
+    }
+
+    &__button{
+
+        &__text{
+            clear: both;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0px 0px 0px 8px;
+        }
     }
 }
 
@@ -77,65 +165,32 @@
     }
 
     &__button{
+        display: flex;
+        align-items: center;
         position: absolute;
+        height:32px;
+        padding:8px 12px;
         bottom: -16px;
         left: 12px;
-        width:97px;
-        height:31px;
-        padding:8px 12px;
         text-align: center;
         background: $highlight-color;
         border-radius: 15px;
 
         p{
-            margin:-10px 0px 0px 0px;
-            line-height:1px;
+            margin:0px 0px 0px 4px;
             padding: 0;
         }
     }
 }
 
-#nav{
-    display: flex;
-    justify-content: center;
-    position:fixed;
-    bottom:-12px;
-    width:100%;
-    padding:16px 24px;
-    list-style: none;
-    background: $bg-color;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
-    0 2px 4px rgba(0,0,0,0.07), 
-    0 4px 8px rgba(0,0,0,0.07), 
-    0 8px 16px rgba(0,0,0,0.07),
-    0 16px 32px rgba(0,0,0,0.07), 
-    0 32px 64px rgba(0,0,0,0.07);
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-
-    li{
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
-        align-content: center;
-        align-items: center;
-        margin:0px 8px;
-
-        a{
-            display: flex;
-            justify-content: space-around;
-            flex-direction: column;
-            align-content: center;
-            align-items: center;
-            margin:0px 8px;
-
-            p{
-                color:#6E8CF5;
-            }
-        }
-    }
-
-    p{
-       margin:0px;
+form{
+    input, textarea{
+        width: 100%;
+        border: 1px solid $main-color;
+        border-radius: 8px;
+        padding: 4px 8px;
+        font-family: $font-tertiairy;
+        font-size:$font-size--2;
     }
 }
+
