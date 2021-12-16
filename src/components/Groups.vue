@@ -15,7 +15,7 @@
       </section>
       <div v-for="group in groups" :key="group.id">
         <div class="card" v-if="group.CreatedByUser === true && group.JoinedByUser === true">
-            <div class="card__header"></div>
+            <div class="card__header" v-bind:style="{ 'background-image': 'url(' + group.img + ')' }"></div>
               <article class="card__text">
                   <h4 class="card__text__title">{{group.Title}}</h4>
                   <p class="card__text__text">{{group.Text}}</p>
@@ -37,7 +37,7 @@
       </section>
       <div v-for="group in groups" :key="group.id">
         <div class="card" v-if="group.CreatedByUser === false && group.JoinedByUser === true">
-            <div class="card__header"></div>
+           <div class="card__header" v-bind:style="{ 'background-image': 'url(' + group.img + ')' }"></div>
               <article class="card__text">
                   <h4 class="card__text__title">{{group.Title}}</h4>
                   <p class="card__text__text">{{group.Text}}</p>
@@ -59,7 +59,7 @@
       </section>
       <div v-for="group in groups" :key="group.id">
         <div class="card" v-if="group.CreatedByUser === false && group.JoinedByUser === false">
-            <div class="card__header"></div>
+            <div class="card__header" v-bind:style="{ 'background-image': 'url(' + group.img + ')' }"></div>
               <article class="card__text">
                   <h4 class="card__text__title">{{group.Title}}</h4>
                   <p class="card__text__text">{{group.Text}}</p>

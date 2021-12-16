@@ -6,7 +6,7 @@
       </button>
       <article class="introText">
         <h1 class="introText__title">{{group.Title}}</h1>
-        <h2 class="introText__subtitle">{{group.Text.substring  (0,40)+".."}}</h2>
+        <h2 class="introText__subtitle">{{group.Text.substring  (0,50)+".."}}</h2>
       </article>
       <section class="row">
         <div class="row__title">
@@ -18,7 +18,7 @@
         <ul class="images-grid">
           <li class="images-grid__item"></li>
           <li class="images-grid__item"></li>
-          <li class="images-grid__item"></li>
+          <li class="images-grid__item" v-bind:style="{ 'background-image': 'url(' + group.img + ')' }"></li>
           <li class="images-grid__item"></li>
         </ul>
       </section>
@@ -50,7 +50,8 @@
           </div>
         </div>
         <div class="row__text">
-            <p v-if="group.Text.length>0">{{ group.Text }}</p>
+          <!-- <p>{{group.Text}}</p> -->
+            <p v-if="group.Text.length>0">{{group.Text}}</p>
             <p v-else>This group has no biography...</p>
         </div>
       </section>

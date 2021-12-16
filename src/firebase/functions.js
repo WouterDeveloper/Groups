@@ -1,6 +1,4 @@
-import db from "@/firebase/init.js";
-import { doc, getDoc } from "firebase/firestore";
-
+import db, {storage} from "@/firebase/init.js";
 
 
 export const getAll = async function(collection) {
@@ -19,25 +17,17 @@ export const getById = async function(collection, id) {
   return snapshot.data()
 }
 
+export const uploadFile = async function(file) {
+  const storageRef = storage.ref();
+  var fileRef = storageRef.child('images/' + new Date().getTime() + file.name);
+  let snapshot = await fileRef.put(file);
+  return await snapshot.ref.getDownloadURL();
+}
+
 export const addNew = async function(collection, object) {
   const docRef = await db.collection(collection).add(object);
 return docRef.id;
 }
-
-// export const getCreatedGroup = async function(collection) {
-  
-// const docRef = doc(db, collection)
-//     .orderBy("createdAt", "desc")
-//     .limit(1)
-//     .get();
-//   const docSnap = await getDoc(docRef);
-//   console.log("Document data:", docSnap.data());
-//   // snapshot.forEach((doc) => {
-//   //   // doc.data() is never undefined for query doc snapshots
-//   //   console.log(doc.id, " => ", doc.data());
-//   // });
-// }
-
 
 // export function updateById(collection, id, object) {
 //   db.collection(collection).doc(id).set(object);

@@ -9,7 +9,7 @@
         <h2 class="introText__subtitle">Fill in the data and create a group in no time at all</h2>
       </article>
     <form class="form" @submit.prevent="createGroup">
-      <div class="form__row">
+       <div class="form__row">
         <h3 clas="form__title">Enter a name for your group</h3>
          <input 
                 id="Title"
@@ -21,6 +21,26 @@
                 aria-describedby="fillNameBlock"
                 v-model="group.Title"
              /> 
+      </div>
+      <div class="form__row">
+        <h3 clas="form__title">Pick an image for your group</h3>
+        <input
+              id="img"
+              name="img"
+              type="file"
+              accept="image/*"
+              class="form-control"
+              ref="imageInput"
+              style="display: none"
+              @change="previewImage"
+          />
+          <div class="form__image-preview" 
+          v-bind:style="{ 
+            'background-image': 'url(' + group.img + ')'
+            }"></div>
+          <button class="form__image-button button__pick-image" @click="pickImage">
+            <p>Click here to upload an image</p>
+          </button>
       </div>
       <div class="form__row">
         <h3 clas="form__title">Enter a description for your group</h3>
@@ -48,7 +68,11 @@
 
 
 <script>
-import { addNew } from "@/firebase/functions.js";
+import { 
+  addNew,
+  uploadFile
+  } 
+  from "@/firebase/functions.js";
 
 export default {
   props: ["id"],
@@ -58,16 +82,35 @@ export default {
         CreatedByUser: true,
         JoinedByUser: true,
         Title: "",
-        Text: ""
+        Text: "",
+        img: "http://via.placeholder.com/360x90?text=Placeholder+img+360x90",
       },
+      imgFile: null,
       buttonText: "Create group"
     };
   },
 
   methods: {
     async createGroup() {
+      if (this.imgFile != null) {
+        this.group.img = await uploadFile(this.imgFile);
+      }
       let createdGroupId = await addNew("Groepen", this.group);
       this.$router.push({ path: `/GroupDetail/${createdGroupId}` })
+    },
+
+    pickImage() {
+      this.$refs.imageInput.click();
+    },
+
+    previewImage(event) {
+      const file = event.target.files[0];
+      const fileReader = new FileReader();
+      fileReader.addEventListener("load", () => {
+        this.group.img = fileReader.result;
+      });
+      fileReader.readAsDataURL(file);
+      this.imgFile = file;
     }
   }
 };
