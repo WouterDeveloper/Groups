@@ -21,34 +21,34 @@
 }
 
 // Css grid
-.grid {
+// .grid {
 
-    @media all and (min-width: $breakpoint-xs)
-    {      
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);  
-        // grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        grid-auto-rows: minmax(min-content, max-content);
-        //grid-row-gap: ($gutter*2);
-        grid-column-gap:calc($gutter / 2);
-    }
+//     @media all and (min-width: $breakpoint-xs)
+//     {      
+//         display: grid;
+//         grid-template-columns: repeat(12, 1fr);  
+//         // grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+//         grid-auto-rows: minmax(min-content, max-content);
+//         //grid-row-gap: ($gutter*2);
+//         grid-column-gap:calc($gutter / 2);
+//     }
    
 
-    // @include breakpoint(md) {
-    //     grid-template-rows: repeat(3, 1fr);
-    //     grid-column-gap: ($gutter*4);
-    //     grid-row-gap: ($gutter*4);
-    // }
+//     // @include breakpoint(md) {
+//     //     grid-template-rows: repeat(3, 1fr);
+//     //     grid-column-gap: ($gutter*4);
+//     //     grid-row-gap: ($gutter*4);
+//     // }
 
-    @media all and (min-width: $breakpoint-xs) and (max-width: $breakpoint-lg) {      
-        grid-template-columns: repeat(6, 1fr);
-    }
-    // @media all and (max-width: $breakpoint-xs) {      
-    //     grid-template-columns: 1fr;
-    //     grid-auto-rows: minmax(min-content, max-content);
-    //     grid-column-gap: 0;
-    // }
-}
+//     @media all and (min-width: $breakpoint-xs) and (max-width: $breakpoint-lg) {      
+//         grid-template-columns: repeat(6, 1fr);
+//     }
+//     // @media all and (max-width: $breakpoint-xs) {      
+//     //     grid-template-columns: 1fr;
+//     //     grid-auto-rows: minmax(min-content, max-content);
+//     //     grid-column-gap: 0;
+//     // }
+// }
 
 
 
