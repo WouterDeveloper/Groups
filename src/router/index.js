@@ -26,6 +26,15 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/GroupDetail.vue'),
     props: true
+  },
+  {
+    path: '/groupedit/:id?',
+    name: 'Group editpage',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/GroupEdit.vue'),
+    props: true
   }
 ]
 

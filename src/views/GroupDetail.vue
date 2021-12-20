@@ -1,12 +1,14 @@
 <template>
     <div class="container">
+      <router-link style="text-decoration: none; color: inherit;" :to="{ path: `/GroupEdit/${id}`}">
         <button class="button--back" style="border:none">
-     <img src="../assets/icons/Icon_edit.png" height="12px" width="12px">
-      <p>Edit</p>
-      </button>
+            <img src="../assets/icons/Icon_edit.png" height="12px" width="12px">
+            <p>Edit</p>
+        </button>
+      </router-link>
       <article class="introText">
         <h1 class="introText__title">{{group.Title}}</h1>
-        <h2 class="introText__subtitle">{{group.Text.substring  (0,50)+".."}}</h2>
+        <h2 class="introText__subtitle">{{group.Text.substring (0,50)+".."}}</h2>
       </article>
       <section class="row">
         <div class="row__title">
@@ -50,7 +52,6 @@
           </div>
         </div>
         <div class="row__text">
-          <!-- <p>{{group.Text}}</p> -->
             <p v-if="group.Text.length>0">{{group.Text}}</p>
             <p v-else>This group has no biography...</p>
         </div>
@@ -70,10 +71,11 @@
     </div>
 </template>
 <script>
-import { getById } from "@/firebase/functions.js";
+import { getGroupById } from "@/firebase/functions.js";
 
 export default {
-   props: ["id"],
+  props: ["id"],
+
   data() {
     return {
       group: {}
@@ -81,12 +83,12 @@ export default {
   },
 
   created() {
-    this.getById();
+    let id = this.getGroupById();
   },
 
   methods: {
-  async getById() {
-      this.group = await getById("Groepen", this.id);
+  async getGroupById() {
+      this.group = await getGroupById("Groepen", this.id);
     }
   }
 };

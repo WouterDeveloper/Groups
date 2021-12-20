@@ -2,15 +2,15 @@ $font-line-height-small:        12px;
 $font-line-height-medium:       36px;
 $font-line-height-body:         1.5;
 $font-heading-line-height:      1.20;
-$font-lineheight:                   1.56rem;
+$font-lineheight:               1.56rem;
 $font-lineheight-small:         1;
 
-$font-size--3:                   calc(#{$font-size} / 1.6); //12
+$font-size--3:                   calc(#{$font-size} / 1.6);           //10
 $font-size--2:                   calc(#{$font-size} / 1.33333333333); //12
 $font-size--1:                   calc(#{$font-size} / 1.14285714286); //14
 $font-size-1:                    $font-size;                          //16
 $font-size-2:                    calc(#{$font-size} * 1.125);         //18
-$font-size-3:                    calc(#{$font-size} * 1.5);         //24
+$font-size-3:                    calc(#{$font-size} * 1.5);           //24
 $font-size-4:                    calc(#{$font-size} * 2.25);          //36
 
 
@@ -28,9 +28,6 @@ $font-size-4:                    calc(#{$font-size} * 2.25);          //36
     font-family:'Poppins-Regular';
     src: url('../fonts/Poppins-Regular.ttf') format('truetype');
 }
-
-
-
 
 @mixin p {
     font-family: $font-tertiairy;
@@ -72,7 +69,6 @@ h2,
 
 @mixin h3 {
     font-family: $font-tertiairy;
-    // line-height: $font-heading-line-height;
     font-size: $font-size--1;
     font-weight:$font-weight-normal;
     color:$font-color-primary;

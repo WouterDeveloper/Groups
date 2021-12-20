@@ -75,16 +75,12 @@
         <img class="row__title__img" src="../assets/icons/Icon_create-group.png" height="16px" width="16px">
         <p>Create group</p>
       </router-link>
-      <!-- <div class="button__create-group">
-           <img class="row__title__img" src="../assets/icons/Icon_create-group.png" height="16px" width="16px">
-        <p>Create group</p>
-      </div> -->
     </div>
 </template>
 
 <script>
 import { getAll } from "@/firebase/functions.js";
-import { getById } from "@/firebase/functions.js";
+import { getGroupById } from "@/firebase/functions.js";
 
 export default {
   data() {
@@ -101,8 +97,8 @@ export default {
     async getGroups() {
       this.groups = await getAll("Groepen");
     },
-     async getById() {
-      this.group = await getById("Groepen", this.id);
+     async getGroupById() {
+      this.group = await getGroupById("Groepen", this.id);
     }
   }
 };

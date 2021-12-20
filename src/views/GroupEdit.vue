@@ -5,16 +5,17 @@
       <p>Go back</p>
       </button>
      <article class="introText">
-        <h1 class="introText__title">Create a group</h1>
-        <h2 class="introText__subtitle">Fill in the data and create a group in no time at all</h2>
+        <h1 class="introText__title">Edit group</h1>
+        <h2 class="introText__subtitle">Edit the fields you want and click save</h2>
       </article>
-    <form class="form" @submit.prevent="createGroup">
+    <form class="form" @submit.prevent="EditGroup">
        <div class="form__row">
-        <h3 clas="form__title">Enter a name for your group</h3>
+        <h3 clas="form__title">Change the name of the group</h3>
+        <p>{{group.Title}}</p>
          <input 
                 id="Title"
                 name="title"
-                placeholder="Your group's name"
+                :placeholder="group.Title"
                 type="text"
                 required="required"
                 class="form-control"
@@ -34,11 +35,12 @@
               style="display: none"
               @change="previewImage"
           />
-          <div class="form__image-preview" 
-          v-bind:style="{ 
-            'background-image': 'url(' + group.img + ')'
-            }"></div>
-          <button class="form__image-button button__pick-image" type="button" @click="pickImage">
+          <div class="form__image-preview" type="button"
+            v-bind:style="{ 
+              'background-image': 'url(' + group.img + ')'
+              }">
+          </div>
+          <button class="form__image-button button__pick-image" @click="pickImage">
             <p>Click here to upload an image</p>
           </button>
       </div>
@@ -47,7 +49,7 @@
         <textarea
                 id="Text"
                 name="text"
-                placeholder="Describe your group in a few words"
+                :placeholder="group.Text"
                 cols="40"
                 rows="5"
                 required="required"
@@ -57,7 +59,7 @@
         ></textarea>
       </div>
       <div class="form__row">
-          <button name="submit" type="submit" class="button button--submit" >
+          <button name="submit" type="submit" class="button button--submit" @click="editGroup">
             <img src="../assets/icons/Icon_save.png" height="12px" width="12px">
             <p class="form__row__text">{{ buttonText }}</p>
           </button>
@@ -69,7 +71,8 @@
 
 <script>
 import { 
-  addNew,
+  getGroupById,
+  updateById,
   uploadFile
   } 
   from "@/firebase/functions.js";
@@ -78,26 +81,30 @@ export default {
   props: ["id"],
   data: function() {
     return {
-      group: {
-        CreatedByUser: true,
-        JoinedByUser: true,
-        Title: "",
-        Text: "",
-        img: "http://via.placeholder.com/360x90?text=Placeholder+img+360x90",
-      },
+      group: {},
       imgFile: null,
-      buttonText: "Create group"
+      buttonText: "Save group"
     };
   },
 
+  created() {
+    this.getGroupById();
+  },
+
   methods: {
-    async createGroup() {
-      if (this.imgFile != null) {
-        this.group.img = await uploadFile(this.imgFile);
-      }
-      let createdGroupId = await addNew("Groepen", this.group);
-      this.$router.push({ path: `/GroupDetail/${createdGroupId}` })
-    },
+  async getGroupById() {
+        this.group = await getGroupById("Groepen", this.id);
+  },
+    
+  async editGroup() {
+    if (this.imgFile != null) {
+      this.group.img = await uploadFile(this.imgFile);
+    }
+    if (this.id != null) {
+      updateById("Groepen", this.id, this.group);  
+    } 
+    this.$router.push({ path: `/GroupDetail/${this.id}` })
+  },
 
     pickImage() {
       this.$refs.imageInput.click();
@@ -112,6 +119,7 @@ export default {
       fileReader.readAsDataURL(file);
       this.imgFile = file;
     }
+    
   }
 };
 </script>
