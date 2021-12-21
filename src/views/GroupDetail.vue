@@ -33,7 +33,7 @@
       <section class="row">
         <div class="row__title">
           <div class="row__left-section">
-            <img class="row__title__img" src="../assets/icons/Icon_images.png" height="20px" width="20px">
+            <img class="row__title__img" src="../assets/icons/Icon_members.png" height="20px" width="20px">
             <h3> Members</h3>
           </div>
         </div>
