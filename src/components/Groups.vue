@@ -10,7 +10,7 @@
             <img class="row__title__img" src="../assets/icons/Created-groups_icon.png" height="20px" width="20px">
             <h3> Created groups</h3>
           </div>
-          <img class="button button--toggle" src="../assets/icons/Button-toggle.png" height="24px" width="24px">
+          <img src="../assets/icons/Button-toggle.png" height="32px" width="32px">
         </div>
         <div v-for="group in groups" :key="group.id">
           <div class="card" v-if="group.CreatedByUser === true && group.JoinedByUser === true">
@@ -32,7 +32,7 @@
             <img class="row__title__img" src="../assets/icons/Joined-groups_icon.png" height="20px" width="20px">
             <h3> Joined groups</h3>
           </div>
-          <img class="button button--toggle" src="../assets/icons/Button-toggle.png" height="24px" width="24px">
+          <img src="../assets/icons/Button-toggle.png" height="32px" width="32px">
         </div>
         <div v-for="group in groups" :key="group.id">
           <div class="card" v-if="group.CreatedByUser === false && group.JoinedByUser === true">
@@ -54,7 +54,7 @@
             <img class="row__title__img" src="../assets/icons/Other-groups_icon.png" height="20px" width="20px">
             <h3> Other groups</h3>
           </div>
-          <img class="button button--toggle" src="../assets/icons/Button-toggle.png" height="24px" width="24px">
+          <img src="../assets/icons/Button-toggle.png" height="32px" width="32px">
         </div>
           <div v-for="group in groups" :key="group.id">
         <div class="card" v-if="group.CreatedByUser === false && group.JoinedByUser === false">
