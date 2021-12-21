@@ -1,11 +1,17 @@
 <template>
     <div class="container">
-      <router-link style="text-decoration: none; color: inherit;" :to="{ path: `/GroupEdit/${id}`}">
-        <button class="button--back" style="border:none">
-            <img src="../assets/icons/Icon_edit.png" height="12px" width="12px">
-            <p>Edit</p>
+      <div class="button__wrapper">
+        <router-link style="text-decoration: none; color: inherit;" :to="{ path: `/GroupEdit/${id}`}">
+          <button class="button--back" style="border:none">
+              <img src="../assets/icons/Icon_edit.png" height="12px" width="12px">
+              <p>Edit</p>
+          </button>    
+        </router-link>
+        <button @click="$router.go(-1)" class="button--back" style="border:none">
+          <img src="../assets/icons/Icon-back.png" height="10px" width="15px">
+          <p>Go back</p>
         </button>
-      </router-link>
+      </div>
       <article class="introText">
         <h1 class="introText__title">{{group.Title}}</h1>
         <h2 class="introText__subtitle">{{group.Text.substring (0,50)+".."}}</h2>

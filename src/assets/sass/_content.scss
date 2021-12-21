@@ -49,7 +49,10 @@
     }
 
     &__text{
-        margin-top:-16px;
+        @media all and (min-width: $breakpoint-xs)
+        {
+            margin-top:-16px;  
+        }
     }
 }
 

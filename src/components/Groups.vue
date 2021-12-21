@@ -26,7 +26,6 @@
             </div>
         </div> 
       </section>
- 
       <section class="row">
         <div class="row__title">
           <div class="row__left-section">

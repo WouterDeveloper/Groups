@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <button @click="$router.go(-1)" class="button--back" style="border:none">
-     <img src="../assets/icons/Icon-back.png" height="10px" width="15px">
+      <img src="../assets/icons/Icon-back.png" height="10px" width="15px">
       <p>Go back</p>
-      </button>
+    </button>
      <article class="introText">
         <h1 class="introText__title">Edit group</h1>
         <h2 class="introText__subtitle">Edit the fields you want and click save</h2>
