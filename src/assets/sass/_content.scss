@@ -48,12 +48,12 @@
         border-radius: 100px;
     }
 
-    &__text{
-        @media all and (min-width: $breakpoint-xs)
-        {
-            margin-top:-16px;  
-        }
-    }
+    // &__text{
+    //     @media all and (min-width: $breakpoint-xs)
+    //     {
+    //         margin-top:-16px;  
+    //     }
+    // }
 }
 
 .images-grid{
