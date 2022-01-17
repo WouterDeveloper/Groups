@@ -8,42 +8,42 @@
         <h1 class="introText__title">Create a group</h1>
         <h2 class="introText__subtitle">Fill in the data and create a group in no time at all</h2>
       </article>
-    <form class="form" @submit.prevent="createGroup">
-       <div class="form__row">
-        <h3 clas="form__title">Enter a name for your group</h3>
+    <form class="formulier" @submit.prevent="createGroup">
+       <div class="formulier__row">
+        <h3 clas="formulier__title">Enter a name for your group</h3>
          <input 
                 id="Title"
                 name="title"
                 placeholder="Your group's name"
                 type="text"
                 required="required"
-                class="form-control"
+                class="formulier-control"
                 aria-describedby="fillNameBlock"
                 v-model="group.Title"
              /> 
       </div>
-      <div class="form__row">
-        <h3 clas="form__title">Pick an image for your group</h3>
+      <div class="formulier__row">
+        <h3 clas="formulier__title">Pick an image for your group</h3>
         <input
               id="img"
               name="img"
               type="file"
               accept="image/*"
-              class="form-control"
+              class="formulier-control"
               ref="imageInput"
               style="display: none"
               @change="previewImage"
           />
-          <div class="form__image-preview" 
+          <div class="formulier__image-preview" 
           v-bind:style="{ 
             'background-image': 'url(' + group.img + ')'
             }"></div>
-          <button class="form__image-button button__pick-image" type="button" @click="pickImage">
+          <button class="formulier__image-button button__pick-image" type="button" @click="pickImage">
             <p>Click here to upload an image</p>
           </button>
       </div>
-      <div class="form__row">
-        <h3 clas="form__title">Enter a description for your group</h3>
+      <div class="formulier__row">
+        <h3 clas="formulier__title">Enter a description for your group</h3>
         <textarea
                 id="Text"
                 name="text"
@@ -51,15 +51,15 @@
                 cols="40"
                 rows="5"
                 required="required"
-                class="form-control"
+                class="formulier-control"
                 aria-describedby="fillDescriptionBlock"
                 v-model="group.Text"
         ></textarea>
       </div>
-      <div class="form__row">
+      <div class="formulier__row">
           <button name="submit" type="submit" class="button button--submit" >
             <img src="../assets/icons/Icon_save.png" height="12px" width="12px">
-            <p class="form__row__text">{{ buttonText }}</p>
+            <p class="formulier__row__text">{{ buttonText }}</p>
           </button>
         </div>
     </form>  

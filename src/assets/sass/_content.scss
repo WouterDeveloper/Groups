@@ -194,10 +194,15 @@ form{
     }
 }
 
-.form{
-    
-    &__title{
+.formulier{
+
+    h3{
         margin-bottom:1vh;
     }
+
+    input, &__image-preview, textarea{
+        margin-bottom:2vh;
+    }
 }
+
 
