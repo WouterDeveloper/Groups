@@ -12,7 +12,7 @@
           <p>Go back</p>
         </button>
       </div>
-      <article class="introText">
+      <article class="introText margin-top">
         <h1 class="introText__title">{{group.Title}}</h1>
         <h2 class="introText__subtitle">{{group.Text.substring (0,50)+".."}}</h2>
       </article>

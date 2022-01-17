@@ -4,7 +4,7 @@
       <img src="../assets/icons/Icon-back.png" height="10px" width="15px">
       <p>Go back</p>
     </button>
-     <article class="introText">
+     <article class="introText margin-top">
         <h1 class="introText__title">Edit group</h1>
         <h2 class="introText__subtitle">Edit the fields you want and click save</h2>
       </article>

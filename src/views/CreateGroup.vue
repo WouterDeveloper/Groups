@@ -4,7 +4,7 @@
      <img src="../assets/icons/Icon-back.png" height="10px" width="15px">
       <p>Go back</p>
       </button>
-     <article class="introText">
+     <article class="introText margin-top">
         <h1 class="introText__title">Create a group</h1>
         <h2 class="introText__subtitle">Fill in the data and create a group in no time at all</h2>
       </article>

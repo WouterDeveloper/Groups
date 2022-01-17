@@ -1,6 +1,5 @@
 import db, {storage} from "@/firebase/init.js";
 
-
 export const getAll = async function(collection) {
   const snapshot = await db.collection(collection).get()
  return snapshot.docs.map(doc => Object.assign({ id: doc.id }, doc.data()));
